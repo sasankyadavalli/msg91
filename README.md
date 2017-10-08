@@ -1,11 +1,10 @@
 # Msg91
 
-**TODO: Add description**
+**MSG91 API library for Elixir**
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `msg91` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `msg91` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -14,6 +13,7 @@ def deps do
   ]
 end
 ```
+Docs can be found at [https://hexdocs.pm/msg91/0.1.0](https://hexdocs.pm/msg91/0.1.0).
 
 ## Configuration
 
