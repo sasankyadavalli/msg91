@@ -39,6 +39,7 @@ defmodule Msg91.Mixfile do
       name: "msg91",
       # These are the default files included in the package
       maintainers: ["Sasank Yadavalli"],
+      licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/sasankyadavalli/msg91"}
     ]
   end
