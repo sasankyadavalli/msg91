@@ -1,18 +1,35 @@
 defmodule Msg91 do
-  @moduledoc """
-  Documentation for Msg91.
-  """
+  @moduledoc false
 
-  @doc """
-  Hello world.
+  @base_url "https://control.msg91.com/api/sendhttp.php"
 
-  ## Examples
+  @api_key :msg |> Application.fetch_env!(__MODULE__) |> Keyword.get(:authkey)
+  @sender :msg |> Application.fetch_env!(__MODULE__) |> Keyword.get(:sender)
+  @route :msg |> Application.fetch_env!(__MODULE__) |> Keyword.get(:route)
+  @country :msg |> Application.fetch_env!(__MODULE__) |> Keyword.get(:country_code)
 
-      iex> Msg91.hello
-      :world
+  def format_request(phone, message) do
+    %{
+      authkey: @api_key,
+      mobiles: phone,
+      message: message,
+      sender: @sender,
+      route: @route,
+      country: @country
+    }
+  end
 
-  """
-  def hello do
-    :world
+  defp parse_response({:ok, %HTTPoison.Response{body: body, status_code: status}}) do
+    {:ok, body}
+  end
+
+  defp parse_response({:ok, %HTTPoison.Error{reason: reason}}) do
+    {:error, reason}
+  end
+
+  def send(phone, message) do
+    @base_url
+    |> HTTPoison.get([], [params: format_request(phone, message)])
+    |> parse_response()
   end
 end
