@@ -3,10 +3,10 @@ defmodule Msg91 do
 
   @base_url "https://control.msg91.com/api/sendhttp.php"
 
-  @api_key :msg |> Application.fetch_env!(__MODULE__) |> Keyword.get(:authkey)
-  @sender :msg |> Application.fetch_env!(__MODULE__) |> Keyword.get(:sender)
-  @route :msg |> Application.fetch_env!(__MODULE__) |> Keyword.get(:route)
-  @country :msg |> Application.fetch_env!(__MODULE__) |> Keyword.get(:country_code)
+  @api_key :msg91 |> Application.fetch_env!(__MODULE__) |> Keyword.get(:authkey)
+  @sender :msg91 |> Application.fetch_env!(__MODULE__) |> Keyword.get(:sender)
+  @route :msg91 |> Application.fetch_env!(__MODULE__) |> Keyword.get(:route)
+  @country :msg91 |> Application.fetch_env!(__MODULE__) |> Keyword.get(:country_code)
 
   def format_request(phone, message) do
     %{
