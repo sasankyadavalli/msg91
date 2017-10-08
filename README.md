@@ -15,6 +15,15 @@ def deps do
 end
 ```
 
+## Configuration
+
+```elixir
+config :msg91, Msg91,
+  authkey: "MSG91_APIKEY",
+  sender: "SENDER_NAME",
+  route: 4,
+  country_code: 91
+
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/msg91](https://hexdocs.pm/msg91).
