@@ -1,5 +1,7 @@
 defmodule Msg91 do
-  @moduledoc false
+  @moduledoc """
+  MSG91 API library for Elixir
+  """
 
   @base_url "https://control.msg91.com/api/sendhttp.php"
 
@@ -27,6 +29,17 @@ defmodule Msg91 do
     {:error, reason}
   end
 
+  @doc """
+  Sends message as SMS to phone number.
+
+  Returns `{:ok, result}` on success, else `{:error, reason}`
+
+  ## Examples
+
+        iex(1)> Msg91.send("7995738307", "Hello from elixir")
+          {:ok, "376a68754169303039353533"}
+          
+  """
   def send(phone, message) do
     @base_url
     |> HTTPoison.get([], [params: format_request(phone, message)])
