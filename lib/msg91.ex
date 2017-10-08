@@ -10,7 +10,7 @@ defmodule Msg91 do
   @route :msg91 |> Application.fetch_env!(__MODULE__) |> Keyword.get(:route)
   @country :msg91 |> Application.fetch_env!(__MODULE__) |> Keyword.get(:country_code)
 
-  def format_request(phone, message) do
+  defp format_request(phone, message) do
     %{
       authkey: @api_key,
       mobiles: phone,
