@@ -38,6 +38,9 @@ defmodule Msg91 do
 
         iex(1)> Msg91.send("7995738307", "Hello from elixir")
           {:ok, "376a68754169303039353533"}
+
+        iex(2)> Msg91.send("9876543210", "Hey")
+          {:ok, "376a68754169981234757555"}
           
   """
   def send(phone, message) do
